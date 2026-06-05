@@ -1,9 +1,8 @@
 class Nave {
-  var velocidad 
+  var velocidad = 0
   var direccion
   method velocidad () = velocidad
   method direccion () = direccion
-  var miPiloto = pilotoA
   method acelerar (cuanto) {
     velocidad = (velocidad + cuanto).min(100000) 
   } 
@@ -25,10 +24,18 @@ class Nave {
   method alejarseUnPocoDelSol () {
     direccion = (direccion-1).max(-10)
   }
+  method prepararViaje ()
 }
 
-object pilotoA {
-  var property experiencia = 10
+class NaveBaliza inherits Nave{
+  var colorBaliza = "azul"
+  method cambiarColorDeBaliza (colorNuevo) {
+    colorBaliza = colorNuevo
+  }
+  method prepararViaje () {
+    colorBaliza = "verde"
+    self.ponerseParaleloAlSol()
+  }
 }
 
 
