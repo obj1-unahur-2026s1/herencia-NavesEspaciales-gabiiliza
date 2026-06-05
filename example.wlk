@@ -65,6 +65,7 @@ class navePasajeros inherits Nave{
 
 class NaveCombate inherits Nave {
   var estaVisible = false
+  var misilesDesplegados = false
   method estaInvisible () {
     return not (estaVisible)
   }
@@ -73,6 +74,15 @@ class NaveCombate inherits Nave {
   }
   method ponerseInvisible () {
     estaVisible = false
+  }
+  method desplegarMisiles () {
+    misilesDesplegados = true
+  }
+  method replegarMisiles () {
+    misilesDesplegados = false
+  }
+  method misilesDesplegados () {
+    return (misilesDesplegados)
   }
 }
 
