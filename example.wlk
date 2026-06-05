@@ -1,6 +1,9 @@
 class Nave {
   var velocidad 
   var direccion
+  method velocidad () = velocidad
+  method direccion () = direccion
+  var miPiloto = pilotoA
   method acelerar (cuanto) {
     velocidad = (velocidad + cuanto).min(100000) 
   } 
@@ -22,6 +25,10 @@ class Nave {
   method alejarseUnPocoDelSol () {
     direccion = (direccion-1).max(-10)
   }
-
 }
+
+object pilotoA {
+  var property experiencia = 10
+}
+
 
