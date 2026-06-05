@@ -32,9 +32,47 @@ class NaveBaliza inherits Nave{
   method cambiarColorDeBaliza (colorNuevo) {
     colorBaliza = colorNuevo
   }
-  method prepararViaje () {
+  override method prepararViaje () {
     colorBaliza = "verde"
     self.ponerseParaleloAlSol()
+  }
+}
+
+class navePasajeros inherits Nave{
+  var pasajeros = 0
+  var racionesComida = 0
+  var racionesBebida = 0
+  method racionesComida () = racionesComida
+  method racionesBebida () = racionesBebida
+  method cargarRacionesComida (cantidad) {
+    racionesComida = racionesComida+cantidad
+  }
+  method cargarRacionesBebida (cantidad) {
+    racionesBebida = racionesBebida+cantidad
+  }
+  method descargarRacionesComida (cantidad) {
+    racionesComida = racionesComida-cantidad
+  }
+  method descargarRacionesBebida (cantidad) {
+    racionesBebida = racionesBebida-cantidad
+  }
+  override method prepararViaje () {
+    self.cargarRacionesComida(pasajeros*4)
+    self.cargarRacionesBebida(pasajeros*6)
+    self.acercarseUnPocoAlSol()
+  }
+}
+
+class NaveCombate inherits Nave {
+  var estaVisible = false
+  method estaInvisible () {
+    return not (estaVisible)
+  }
+  method ponerseVisible () {
+    estaVisible = true
+  }
+  method ponerseInvisible () {
+    estaVisible = false
   }
 }
 
